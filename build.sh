@@ -1,13 +1,19 @@
-set -ex
+#!/bin/bash
+#set -ex
+#clear and pruge images
+#docker system prune -a
+# remover todas las imagenes
+#docker rmi $(docker images -a -q)
 # SET THE FOLLOWING VARIABLES
 # docker hub username
 USERNAME=e4cash
 # image name
-IMAGE=database
+IMAGE=oracle-db
 # version wildfly
-ORACLE_VERSION=12.2.0.1.0
+VERSION=12.2.0.1.0
 
-docker system prune --all -f
+docker build -t $USERNAME/$IMAGE-$VERSION:latest .
 
-docker build --tag=$IMAGE-oracle-$ORACLE_VERSION -t $USERNAME/$IMAGE-oracle-$ORACLE_VERSION:latest -m 3g . 
+sleep 5 
 
+docker images -a

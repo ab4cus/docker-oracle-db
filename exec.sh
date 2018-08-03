@@ -1,3 +1,3 @@
 set -ex
 
-docker exec -it oracle-ee bash
+docker exec -it db-oracle bash
